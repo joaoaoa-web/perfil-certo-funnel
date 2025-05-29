@@ -231,21 +231,23 @@ const QuizContainer = () => {
   const progress = ((currentQuestion) / questions.length) * 100;
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4">
+    <div className="min-h-screen bg-gray-50 p-2 md:p-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-blue-800 mb-4">Perfil Certo - Quiz Corretor Natal/RN</h1>
-          <div className="flex items-center justify-between mb-4">
-            <span className="text-sm text-gray-600">
+        <div className="text-center mb-6 md:mb-8">
+          <h1 className="text-lg md:text-2xl font-bold text-blue-800 mb-3 md:mb-4 px-2">Perfil Certo - Quiz Corretor Natal/RN</h1>
+          <div className="flex items-center justify-between mb-3 md:mb-4 px-2">
+            <span className="text-xs md:text-sm text-gray-600">
               Pergunta {currentQuestion + 1} de {questions.length}
             </span>
             <div className="flex items-center space-x-2">
-              <Trophy className="h-5 w-5 text-yellow-500" />
-              <span className="font-bold text-lg text-gray-800">{score} pontos</span>
+              <Trophy className="h-4 w-4 md:h-5 md:w-5 text-yellow-500" />
+              <span className="font-bold text-base md:text-lg text-gray-800">{score} pontos</span>
             </div>
           </div>
-          <Progress value={progress} className="h-2" />
+          <div className="px-2">
+            <Progress value={progress} className="h-2" />
+          </div>
         </div>
 
         {/* Question */}

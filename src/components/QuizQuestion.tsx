@@ -37,42 +37,42 @@ const QuizQuestion = ({ question, onAnswer }: QuizQuestionProps) => {
 
   return (
     <Card className="w-full max-w-2xl mx-auto shadow-lg border-0 bg-white">
-      <CardContent className="p-8">
-        <h2 className="text-2xl font-bold text-blue-800 mb-8 text-center leading-relaxed">
+      <CardContent className="p-4 md:p-8">
+        <h2 className="text-lg md:text-2xl font-bold text-blue-800 mb-6 md:mb-8 text-center leading-relaxed">
           {question.question}
         </h2>
 
-        <div className="space-y-4 mb-8">
+        <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
           {question.type === 'single' ? (
             <RadioGroup
               value={selectedAnswers[0] || ''}
               onValueChange={handleSingleSelect}
-              className="space-y-3"
+              className="space-y-2 md:space-y-3"
             >
               {question.options.map((option) => (
                 <div
                   key={option.value}
-                  className="flex items-center space-x-3 p-4 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 transition-all duration-200 cursor-pointer"
+                  className="flex items-center space-x-3 p-3 md:p-4 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 transition-all duration-200 cursor-pointer"
                 >
                   <RadioGroupItem value={option.value} id={option.value} />
                   <Label
                     htmlFor={option.value}
-                    className="flex-1 cursor-pointer text-base font-medium text-gray-800"
+                    className="flex-1 cursor-pointer text-sm md:text-base font-medium text-gray-800"
                   >
                     {option.label}
                   </Label>
-                  <span className="text-sm text-yellow-600 font-semibold">
+                  <span className="text-xs md:text-sm text-yellow-600 font-semibold">
                     +{option.points} pts
                   </span>
                 </div>
               ))}
             </RadioGroup>
           ) : (
-            <div className="space-y-3">
+            <div className="space-y-2 md:space-y-3">
               {question.options.map((option) => (
                 <div
                   key={option.value}
-                  className="flex items-center space-x-3 p-4 rounded-lg border border-gray-200 hover:border-green-400 hover:bg-green-50 transition-all duration-200"
+                  className="flex items-center space-x-3 p-3 md:p-4 rounded-lg border border-gray-200 hover:border-green-400 hover:bg-green-50 transition-all duration-200"
                 >
                   <Checkbox
                     id={option.value}
@@ -83,11 +83,11 @@ const QuizQuestion = ({ question, onAnswer }: QuizQuestionProps) => {
                   />
                   <Label
                     htmlFor={option.value}
-                    className="flex-1 cursor-pointer text-base font-medium text-gray-800"
+                    className="flex-1 cursor-pointer text-sm md:text-base font-medium text-gray-800"
                   >
                     {option.label}
                   </Label>
-                  <span className="text-sm text-yellow-600 font-semibold">
+                  <span className="text-xs md:text-sm text-yellow-600 font-semibold">
                     +{option.points} pts
                   </span>
                 </div>
@@ -100,10 +100,10 @@ const QuizQuestion = ({ question, onAnswer }: QuizQuestionProps) => {
           <Button
             onClick={handleSubmit}
             disabled={selectedAnswers.length === 0}
-            className="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+            className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 md:py-4 px-6 md:px-8 rounded-lg text-base md:text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed w-full md:w-auto"
           >
             Confirmar Resposta
-            <ArrowRight className="ml-2 h-5 w-5" />
+            <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
           </Button>
         </div>
       </CardContent>

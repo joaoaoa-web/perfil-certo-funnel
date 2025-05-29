@@ -15,7 +15,7 @@ const ScorePopup = ({ points, totalScore }: ScorePopupProps) => {
   }, []);
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
+    <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none p-4">
       <div
         className={`transform transition-all duration-500 ${
           isVisible
@@ -23,25 +23,25 @@ const ScorePopup = ({ points, totalScore }: ScorePopupProps) => {
             : 'scale-50 opacity-0 translate-y-10'
         }`}
       >
-        <div className="bg-green-600 text-white p-8 rounded-2xl shadow-2xl border-4 border-yellow-400">
+        <div className="bg-green-600 text-white p-6 md:p-8 rounded-2xl shadow-2xl border-4 border-yellow-400 max-w-sm md:max-w-md mx-auto">
           <div className="text-center">
-            <div className="flex justify-center mb-4">
-              <Trophy className="h-16 w-16 text-yellow-400" />
+            <div className="flex justify-center mb-3 md:mb-4">
+              <Trophy className="h-12 w-12 md:h-16 md:w-16 text-yellow-400" />
             </div>
             
-            <h3 className="text-3xl font-bold mb-2 text-yellow-400">
+            <h3 className="text-2xl md:text-3xl font-bold mb-2 text-yellow-400">
               +{points} Pontos! 💰
             </h3>
             
-            <p className="text-xl mb-4">
+            <p className="text-lg md:text-xl mb-3 md:mb-4">
               Sua pontuação: <span className="font-bold text-yellow-400">{totalScore}</span>
             </p>
             
-            <div className="flex justify-center space-x-1 mb-4">
+            <div className="flex justify-center space-x-1 mb-3 md:mb-4">
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
-                  className={`h-6 w-6 ${
+                  className={`h-5 w-5 md:h-6 md:w-6 ${
                     i < Math.min(5, Math.floor(points / 5))
                       ? 'text-yellow-400 fill-current'
                       : 'text-yellow-200'
@@ -50,7 +50,7 @@ const ScorePopup = ({ points, totalScore }: ScorePopupProps) => {
               ))}
             </div>
             
-            <p className="text-lg font-semibold text-blue-200">
+            <p className="text-base md:text-lg font-semibold text-blue-200">
               Continue jogando! 🚀
             </p>
           </div>
