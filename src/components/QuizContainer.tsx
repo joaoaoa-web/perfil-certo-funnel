@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -196,10 +195,8 @@ const QuizContainer = () => {
       return;
     }
     
-    // Redirecionar para WhatsApp com resumo
-    const summary = generateSummary();
-    const message = encodeURIComponent(summary);
-    window.open(`https://wa.me/84991469591?text=${message}`, '_blank');
+    // Redirecionar para WhatsApp com o novo link
+    window.open('https://api.whatsapp.com/send/?phone=84991469591&text&type=phone_number&app_absent=0', '_blank');
   };
 
   const generateSummary = () => {
